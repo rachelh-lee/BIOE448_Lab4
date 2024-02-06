@@ -8,6 +8,10 @@ const int trigPin = 11;
 const int echoPin = 12;
 long duration;
 int distanceCm, distanceInch;
+const double R1 = 0.0343/2;
+// speed of sound in cm/uS and divded by two because the sound travels there and back
+const double R2 = 0.0135/2;
+// speed of sound in In/uS and divded by two because the sound travels there and back
 
 void setup() {
   // put your setup code here, to run once:
@@ -24,4 +28,13 @@ void loop() {
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
   duration = pulseIn(echoPin, HIGH);
+  // calibrating the sensor
+  distanceCm = duration * R1;
+  distanceInch = duration *R2;
+  Serial.print("Distance: ");
+  Serial.print(distanceCm);
+  Serial.print(" cm/");
+  Serial.print(distanceInch);
+  Serial.print(" in");
+  delay(1000);
 }
