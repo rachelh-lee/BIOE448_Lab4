@@ -30,11 +30,11 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   // calibrating the sensor
   distanceCm = duration * R1;
-  distanceInch = duration *R2;
+  distanceInch = duration * R2;
   Serial.print("Distance: ");
   Serial.print(distanceCm);
   Serial.print(" cm/");
   Serial.print(distanceInch);
-  Serial.print(" in");
+  Serial.println(" in");
   delay(1000);
 }
