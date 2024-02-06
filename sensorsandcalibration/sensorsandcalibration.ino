@@ -12,9 +12,9 @@ const double R1 = 0.0343/2;
 // speed of sound in cm/uS and divded by two because the sound travels there and back
 const double R2 = 0.0135/2;
 // speed of sound in In/uS and divded by two because the sound travels there and back
-const int LEDPin = 6;
+const int LEDPin = 2;
 // setting pin6 to input to Red Led
-const int LEDPin2 = 2;
+const int LEDPin2 = 6;
 // setting pin 2 to input to Green Led 
 const int threshold = 3;
 
@@ -43,7 +43,7 @@ void loop() {
   Serial.println(" in");
   delay(1000);
   // adding complexity, if distance is less than threshold, Green LED lights up, if not Red lED lights up
-  if (distanceInch > threshold) {
+  if (distanceInch < threshold) {
     digitalWrite(LEDPin, HIGH);
     digitalWrite(LEDPin2, LOW);
   }
